@@ -9,12 +9,11 @@
         :root {
             --brand-money: #2D5016;
             --brand-accent: #F5A623;
-            --text-main: #111111;
-            --gray-light: #f4f4f4;
+            --text-main: #111;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
             line-height: 1.55;
             color: var(--text-main);
             margin: 0;
@@ -26,52 +25,55 @@
         
         header {
             padding: 40px 20px;
-            border-bottom: 1px solid #ddd;
             max-width: 800px;
             margin: 0 auto;
         }
 
-        .brand-logo { font-size: 2rem; font-weight: bold; margin: 0; }
+        .brand-logo { font-size: 2.2rem; font-weight: bold; margin: 0; }
         .book-subtitle { font-size: 1rem; color: var(--brand-money); text-transform: uppercase; letter-spacing: 1px; }
 
-        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
         .section { display: none; }
         .section.active { display: block; }
 
-        /* Navigation Bar */
+        /* Navigation */
         nav {
             position: fixed; bottom: 0; width: 100%;
             background: #fff; border-top: 2px solid #000;
-            display: flex; justify-content: space-around; padding: 12px 0;
+            display: flex; overflow-x: auto; padding: 12px 0;
             z-index: 1000;
         }
         nav button {
             background: none; border: none; font-weight: bold; font-size: 0.7rem;
             text-transform: uppercase; letter-spacing: 1px; cursor: pointer; color: #666;
+            padding: 0 15px; white-space: nowrap;
         }
         nav button.active { color: #000; border-bottom: 2px solid var(--brand-money); }
 
-        /* dbd. Specific Elements */
-        h1 { font-size: 2.2rem; line-height: 1.1; margin: 1.5rem 0 1rem; }
-        h2 { font-size: 1.5rem; border-bottom: 1px solid #000; padding-bottom: 5px; margin-top: 2rem; }
-        .chapter-accent { width: 60px; height: 4px; background: #000; margin-bottom: 1.5rem; }
+        /* Typography */
+        h1 { font-size: 2.5rem; line-height: 1.1; margin: 2rem 0 1rem; }
+        h2 { font-size: 1.8rem; margin-top: 2.5rem; }
+        h3 { font-size: 1.4rem; margin-top: 2rem; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        .chapter-accent { width: 80px; height: 5px; background: #111; margin-bottom: 2rem; }
         
-        /* Callout Mappings from Series Guide */
+        /* Callouts mapped to dbd. Visual System */
         .callout { border-left: 4px solid #111; padding: 15px 20px; margin: 25px 0; background: #f9f9f9; }
         .callout-title { font-weight: bold; text-transform: uppercase; font-size: 0.85rem; display: block; margin-bottom: 8px; }
         
-        .alert { border-left-style: solid; border-color: #DC2626; background: #fff1f2; }
-        .smart { border-left-style: double; border-color: #059669; background: #f0fdf4; }
+        .alert { border-left-style: solid; border-color: #DC2626; }
+        .smart, .realtalk { border-left-style: double; border-color: #059669; }
         .action { background: #111; color: #fff; border: none; }
-        .action .callout-title { color: #fff; }
+        .time { border-left-style: dashed; }
+        .cost, .math { border-left-style: dotted; }
 
-        /* Checklists */
-        .checklist { border: 2px solid #111; padding: 25px; margin: 30px 0; }
-        .checklist h3 { margin-top: 0; text-transform: uppercase; font-size: 1rem; }
-        .check-item { display: flex; align-items: flex-start; margin-bottom: 12px; }
-        .check-item input { margin-right: 15px; margin-top: 4px; }
+        /* Checklist */
+        .checklist { border: 2px solid #111; padding: 25px; margin: 40px 0; }
+        .checklist h3 { margin-top: 0; text-transform: uppercase; font-size: 1rem; letter-spacing: 1px; }
+        .check-item { display: flex; align-items: flex-start; margin-bottom: 15px; }
+        .check-item input { margin-right: 15px; margin-top: 5px; }
 
-        blockquote { font-family: "Georgia", serif; font-style: italic; font-size: 1.25rem; margin: 2rem 0; padding-left: 20px; border-left: 2px solid #ddd; }
+        blockquote { font-family: "Georgia", serif; font-style: italic; font-size: 1.3rem; margin: 2.5rem 0; padding-left: 25px; border-left: 3px solid #ddd; color: #444; }
+        .teaser { border-top: 1px solid #333; margin-top: 2rem; padding-top: 1.5rem; font-style: italic; }
     </style>
 </head>
 <body>
@@ -82,62 +84,36 @@
 </header>
 
 <div class="container">
-    <section id="sect-front" class="section active">
-        <h1 class="serif">How to Read This Book</h1>
-        <p>You don’t need motivation. You need a system that works even when you’re tired, busy, and over it.</p>
-        <p>This book is built for people who have tried before — apps, spreadsheets, “new month, new me” energy — and still ended up confused, stressed, or back at zero.</p>
+    <section id="sect-intro" class="section active">
+        <h1 class="serif">Introduction: You're Here Because You're Seeking</h1>
+        <div class="chapter-accent"></div>
+        <p>You picked up this book for a reason. Maybe your bank account keeps hitting zero before payday. Maybe you make decent money but have nothing to show for it. Maybe you're tired of feeling anxious every time you check your balance. Maybe you're just sick of not understanding where the hell your money goes.</p>
+        <p>Whatever brought you here, you're doing something most people never do: you're seeking answers. That's not small. Most people just accept financial stress as a permanent condition, like bad weather you can't control. You're here because you know better.</p>
+        <blockquote>Money is a tool. When you understand how to use it, you gain control over your life in ways that ripple through everything. That's what we're after.</blockquote>
         
-        <h2 class="serif">The Only Rules</h2>
+        <h2 class="serif">How to Read This Book</h2>
+        <p>You don’t need motivation. You need a system that works even when you’re tired, busy, and over it.</p>
+        <h3>The Only Rules</h3>
         <ul>
             <li><strong>Do one thing at a time.</strong> Each chapter gives you a smallest-possible move. Take it.</li>
             <li><strong>Imperfect data beats perfect intentions.</strong> Miss a day? Start again. No drama.</li>
             <li><strong>Build stability first.</strong> Control → cushion → momentum. That’s the order.</li>
         </ul>
-
-        <div class="callout">
-            <span class="callout-title">The Pattern (Use This Every Chapter)</span>
-            <ol>
-                <li><strong>Read</strong> the chapter.</li>
-                <li><strong>Do the Action Step</strong> the same day if you can.</li>
-                <li><strong>Use the Checklist</strong> to finish the chapter in 15 minutes or less.</li>
-                <li><strong>Do the Monthly Money Meeting</strong> (Chapter 2) so you don’t drift.</li>
-            </ol>
-        </div>
-
-        <h1 class="serif">Introduction:<br>You're Here Because You're Seeking</h1>
-        <div class="chapter-accent"></div>
-        <p>You picked up this book for a reason.</p>
-        <p>Maybe your bank account keeps hitting zero before payday. Maybe you make decent money but have nothing to show for it. Maybe you're tired of feeling anxious every time you check your balance. Maybe you're just sick of not understanding where the hell your money goes.</p>
-        <blockquote>Money is a tool. When you understand how to use it, you gain control over your life in ways that ripple through everything. That's what we're after.</blockquote>
     </section>
 
     <section id="sect-ch1" class="section">
         <h1 class="serif">01. Track Your Shit</h1>
         <div class="chapter-accent"></div>
-        <p>Here's a question: how much money did you spend last month? Not approximately. Actually. The real number.</p>
-        <p>If you can't answer that within $100, you're flying blind. And you can't fix what you can't see.</p>
-        
+        <p>How much money did you spend last month? Not approximately. Actually. The real number. If you can't answer that within $100, you're flying blind. And you can't fix what you can't see.</p>
+        <h3>Why People Don’t Track</h3>
+        <p>Fear. Shame. Tedious. All of that is valid. And all of that is exactly why people stay stuck. Tracking isn’t about judgment. It’s about data. You’re a scientist observing your financial behavior.</p>
         <div class="callout alert">
             <span class="callout-title">⚠️ don’t be dumb. alert</span>
             If you’re waiting to find the “perfect” tracking system, you’re just procrastinating in a nicer outfit. Pick one and start today.
         </div>
-
-        <h3 class="serif">Why People Don’t Track</h3>
-        <p>Fear. Shame. Tedious. All of that is valid. And all of that is exactly why people stay stuck. Tracking isn’t about judgment. It’s about data. You’re a scientist observing your financial behavior.</p>
-
-        <div class="callout smart">
-            <span class="callout-title">✓ smart move</span>
-            Treat this like an experiment. For 30 days, you’re not “good” or “bad.” You’re just collecting information.
-        </div>
-
-        <div class="callout action">
-            <span class="callout-title">🎯 action step</span>
-            Right now: open your bank/credit card app and write down the last 10 transactions you see. You’re officially started.
-        </div>
-
         <div class="checklist">
             <h3 class="serif">don't be dumb. checklist</h3>
-            <div class="check-item"><input type="checkbox"><span>Pick a tracking method and commit for 30 days.</span></div>
+            <div class="check-item"><input type="checkbox"><span>Pick a tracking method and commit to it for 30 days.</span></div>
             <div class="check-item"><input type="checkbox"><span>Track everything—cash, cards, Venmo, subscriptions.</span></div>
             <div class="check-item"><input type="checkbox"><span>Set a daily 5‑minute reminder to log transactions.</span></div>
         </div>
@@ -147,31 +123,83 @@
         <h1 class="serif">02. The Budget That Doesn’t Suck</h1>
         <div class="chapter-accent"></div>
         <p>Most people hear “budget” and picture a color‑coded spreadsheet with 47 categories and rules that make life feel smaller. That’s why most budgets die by mid‑February.</p>
-        
-        <h3 class="serif">The 50/30/20 Rule</h3>
+        <div class="callout smart">
+            <span class="callout-title">✓ smart move</span>
+            The goal isn’t a perfect budget. The goal is a system that makes you spend intentionally.
+        </div>
+        <h3>The 50/30/20 Rule</h3>
         <ul>
-            <li><strong>50% Needs:</strong> housing, utilities, groceries, transportation, insurance, minimum debt.</li>
+            <li><strong>50% Needs:</strong> housing, utilities, groceries, transportation, insurance.</li>
             <li><strong>30% Wants:</strong> dining out, entertainment, hobbies, travel.</li>
             <li><strong>20% Savings & Debt:</strong> emergency fund, retirement, extra debt payments.</li>
         </ul>
+    </section>
 
-        <div class="callout">
-            <p><strong>Example:</strong> Take‑home $4,000/mo → Needs $2,000 • Wants $1,200 • Savings+Debt $800.</p>
+    <section id="sect-ch3" class="section">
+        <h1 class="serif">03. Debt Isn’t Evil, But Interest Is</h1>
+        <div class="chapter-accent"></div>
+        <p>Interest is a recurring subscription to being broke. Debt isn't a moral failing, but interest is a wealth killer.</p>
+        <div class="callout math">
+            <span class="callout-title">🔢 the math</span>
+            A $5,000 credit card balance at 24% APR costs you $100 every single month just to exist.
         </div>
+        <h3>Snowball vs. Avalanche</h3>
+        <p>The Snowball method focuses on psychological wins by paying off the smallest balances first. The Avalanche method focuses on the math by paying the highest interest rates first. Pick the one you will actually stick to.</p>
+    </section>
 
+    <section id="sect-ch4" class="section">
+        <h1 class="serif">04. Emergency Funds Are Unsexy and Essential</h1>
+        <div class="chapter-accent"></div>
+        <p>An emergency fund is the buffer that keeps you from going backward. It's the difference between a "bad day" and a "life-ruining catastrophe."</p>
+        <h3>How Much?</h3>
+        <p>Start with a $1,000 buffer. This covers the most common surprises—a flat tire, a broken appliance, a last-minute flight. Once your high-interest debt is gone, aim for 3-6 months of expenses.</p>
+    </section>
+
+    <section id="sect-ch5" class="section">
+        <h1 class="serif">05. Insurance: Boring But Necessary</h1>
+        <div class="chapter-accent"></div>
+        <p>Insurance is about risk management. You pay a small amount now to avoid a massive loss later.</p>
+        <h3>The Non-Negotiables</h3>
+        <ul>
+            <li><strong>Health Insurance:</strong> One hospital stay can bankrupt you.</li>
+            <li><strong>Auto Insurance:</strong> Legal requirement and financial protection.</li>
+            <li><strong>Renters/Homeowners:</strong> Protects your stuff and your shelter.</li>
+        </ul>
+    </section>
+
+    <section id="sect-ch6" class="section">
+        <h1 class="serif">06. Investing Isn’t Just for Rich People</h1>
+        <div class="chapter-accent"></div>
+        <p>Investing is how you stop trading time for money. If you only save, your money loses value to inflation. If you invest, your money grows.</p>
+        <div class="callout smart">
+            <span class="callout-title">✓ smart move</span>
+            You don't need to pick stocks. Low-cost index funds allow you to own a tiny piece of the entire market.
+        </div>
+    </section>
+
+    <section id="sect-ch7" class="section">
+        <h1 class="serif">07. Retirement Sounds Far Away But Isn’t</h1>
+        <div class="chapter-accent"></div>
+        <p>Retirement isn't an age; it's a number. It's the point where your investments generate enough income to cover your life.</p>
+        <h3>The Power of the Match</h3>
+        <p>If your employer offers a 401(k) match, that is free money. It is part of your compensation. Not taking it is like leaving a stack of hundreds on the sidewalk.</p>
         <div class="checklist">
             <h3 class="serif">don't be dumb. checklist</h3>
-            <div class="check-item"><input type="checkbox"><span>Calculate your real 50/30/20 split from last month.</span></div>
-            <div class="check-item"><input type="checkbox"><span>Identify your 3 biggest "leaks."</span></div>
-            <div class="check-item"><input type="checkbox"><span>Schedule your first Monthly Money Meeting.</span></div>
+            <div class="check-item"><input type="checkbox"><span>Confirm if you have an employer match and take it.</span></div>
+            <div class="check-item"><input type="checkbox"><span>Automate your contributions so they happen before you see the money.</span></div>
         </div>
     </section>
 </div>
 
 <nav>
-    <button onclick="nav('front')" id="btn-front" class="active">FRONT</button>
+    <button onclick="nav('intro')" id="btn-intro" class="active">INTRO</button>
     <button onclick="nav('ch1')" id="btn-ch1">CH 1</button>
     <button onclick="nav('ch2')" id="btn-ch2">CH 2</button>
+    <button onclick="nav('ch3')" id="btn-ch3">CH 3</button>
+    <button onclick="nav('ch4')" id="btn-ch4">CH 4</button>
+    <button onclick="nav('ch5')" id="btn-ch5">CH 5</button>
+    <button onclick="nav('ch6')" id="btn-ch6">CH 6</button>
+    <button onclick="nav('ch7')" id="btn-ch7">CH 7</button>
 </nav>
 
 <script>
