@@ -3,60 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>don't be dumb. about your money</title>
+    <title>don't be dumb.</title>
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#2c3e50">
+    <meta name="theme-color" content="#000000">
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; background: #f9f9f9; }
-        h1, h2 { color: #2c3e50; border-bottom: 2px solid #eee; padding-bottom: 10px; }
-        .checklist { background: #e8f4fd; padding: 20px; border-radius: 8px; border-left: 5px solid #3498db; margin: 20px 0; }
-        .alert { background: #fff3cd; padding: 15px; border-left: 5px solid #ffc107; margin: 15px 0; font-weight: bold; }
-        .action { background: #d4edda; padding: 15px; border-left: 5px solid #28a745; margin: 15px 0; }
-        blockquote { font-style: italic; color: #555; border-left: 3px solid #ccc; padding-left: 15px; }
-        nav { position: sticky; top: 0; background: white; padding: 10px; border-bottom: 1px solid #ddd; display: flex; gap: 10px; overflow-x: auto; }
-        @media (max-width: 600px) { body { padding: 15px; } }
+        :root {
+            --bg: #f4f1ea; /* Recycled paper color */
+            --ink: #1a1a1a;
+            --accent: #ff0055; /* Electric Pink */
+            --highlight: #ccff00; /* Highlighter Green */
+        }
+
+        body { 
+            font-family: 'Courier New', Courier, monospace; 
+            line-height: 1.5; 
+            color: var(--ink); 
+            background-color: var(--bg);
+            max-width: 700px; 
+            margin: 0 auto; 
+            padding: 40px 20px;
+        }
+
+        /* Brutalist Headers */
+        h1 { 
+            background: var(--ink); 
+            color: var(--bg); 
+            display: inline-block; 
+            padding: 10px 20px; 
+            transform: rotate(-1deg);
+            text-transform: uppercase;
+            font-size: 2.5rem;
+        }
+
+        h2 { 
+            border: 3px solid var(--ink); 
+            padding: 10px; 
+            display: inline-block;
+            background: var(--highlight);
+            margin-top: 50px;
+        }
+
+        /* Callout Styles based on your book markers */
+        .alert { 
+            border: 4px solid var(--ink); 
+            background: white; 
+            padding: 20px; 
+            margin: 20px 0;
+            box-shadow: 8px 8px 0px var(--ink);
+        }
+
+        .action-step { 
+            background: var(--ink); 
+            color: white; 
+            padding: 20px; 
+            margin: 20px 0;
+        }
+
+        .checklist-container {
+            border: 2px dashed var(--ink);
+            padding: 20px;
+            background: #fff;
+        }
+
+        /* Interactive Checkboxes */
+        .check-item {
+            display: block;
+            margin-bottom: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .check-item input { margin-right: 10px; }
+
+        .check-item input:checked + span {
+            text-decoration: line-through;
+            color: var(--accent);
+        }
+
+        nav { 
+            position: fixed; 
+            bottom: 20px; 
+            right: 20px; 
+            background: white; 
+            border: 3px solid var(--ink); 
+            padding: 10px;
+            z-index: 100;
+        }
+
+        nav a { color: var(--ink); text-decoration: none; font-weight: bold; display: block; }
+        
+        hr { border: 0; border-top: 3px solid var(--ink); margin: 40px 0; }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.5rem; }
+        }
     </style>
 </head>
 <body>
 
 <nav>
-    <a href="#intro">Intro</a>
-    <a href="#ch1">Ch 1</a>
-    <a href="#ch2">Ch 2</a>
-    <a href="#ch3">Ch 3</a>
+    <a href="#intro">↑ INTRO</a>
+    <a href="#ch1">↑ CH 1</a>
+    <a href="#ch2">↑ CH 2</a>
+    <a href="#ch3">↑ CH 3</a>
 </nav>
 
-<header>
-    <h1>don't be dumb. about your money</h1>
-    <p><strong>ENHANCED FULL DRAFT - Parts 1-3</strong></p>
-</header>
+<h1>DON'T BE DUMB.</h1>
+<p style="font-weight: bold;">[ MONEY ENHANCED FULL DRAFT ]</p>
 
 <section id="intro">
-    <h2>INTRODUCTION: YOU'RE HERE BECAUSE YOU'RE SEEKING</h2>
-    <p>Money is a tool. When you understand how to use it, you gain control over your life. That's what we're after.</p>
+    <h2>00. INTRODUCTION</h2>
+    <p>You're here because you're seeking answers. Most people just accept financial stress as a permanent condition. You know better.</p>
+    <blockquote>"Money is a tool. When you understand how to use it, you gain control."</blockquote>
 </section>
+
+<hr>
 
 <section id="ch1">
-    <h2>CHAPTER 1: TRACK YOUR SHIT</h2>
-    <div class="alert">⚠️ don't be dumb. alert: Don't wait until you're "less busy" to start.</div>
-    <p>Tracking isn't about judgment. It's about data. You can't fix what you can't see.</p>
-    <div class="action">🎯 action step: Choose your tracking method and enter today's transactions.</div>
-</section>
-
-<section id="ch2">
-    <h2>CHAPTER 2: THE BUDGET THAT DOESN'T SUCK</h2>
-    <p>The 50/30/20 Rule: 50% Needs, 30% Wants, 20% Savings/Debt.</p>
-    <div class="checklist">
-        <h3>don't be dumb. checklist</h3>
-        <p>☐ Set up automatic transfers for savings on payday.</p>
-        <p>☐ Schedule your monthly money meeting.</p>
+    <h2>01. TRACK YOUR SHIT</h2>
+    <div class="alert">
+        <strong>⚠️ DON'T BE DUMB ALERT</strong><br>
+        Don't wait until you're "less busy." Start now with whatever method you can sustain.
+    </div>
+    <p>If you can't answer how much you spent last month within $100, you're flying blind.</p>
+    <div class="action-step">
+        <strong>🎯 ACTION STEP</strong><br>
+        Open your phone's notes app. Enter every transaction from today. Right now.
     </div>
 </section>
 
+<hr>
+
+<section id="ch2">
+    <h2>02. THE BUDGET THAT DOESN'T SUCK</h2>
+    <p>Traditional budgeting is designed to fail because it's built on restriction. Use the 50/30/20 rule instead.</p>
+    
+    <div class="checklist-container">
+        <h3>✓ THE CHECKLIST</h3>
+        <label class="check-item"><input type="checkbox"> <span>Calculate your real 50/30/20 split</span></label>
+        <label class="check-item"><input type="checkbox"> <span>Set up auto-transfers for savings</span></label>
+        <label class="check-item"><input type="checkbox"> <span>Schedule your monthly money meeting</span></label>
+    </div>
+</section>
+
+<hr>
+
 <section id="ch3">
-    <h2>CHAPTER 3: DEBT ISN'T EVIL, BUT INTEREST IS</h2>
-    <p>Interest is a recurring subscription to being broke. Attack high-interest debt aggressively.</p>
-    <div class="action">🎯 action step: List every debt with balance and APR today.</div>
+    <h2>03. DEBT & INTEREST</h2>
+    <p>Debt isn't a moral failing, but interest is the killer. It's a recurring subscription to being broke.</p>
+    <div class="alert" style="background: var(--highlight);">
+        <strong>📈 LEVEL UP</strong><br>
+        Use the Debt Snowball: Kill the smallest debt first for the psychological win.
+    </div>
 </section>
 
 <script>
