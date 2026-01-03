@@ -3,233 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>don't be dumb.</title>
+    <title>dbd. about your money</title>
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#1a1a1a">
     <style>
         :root {
-            --bg: #ffffff;
-            --dark: #1a1a1a;
-            --accent: #ff6600; /* Action Orange */
-            --warning: #ffcc00; /* Caution Yellow */
-            --gray: #f4f4f4;
+            --brand-money: #2D5016;
+            --brand-accent: #F5A623;
+            --text-main: #111111;
+            --gray-light: #f4f4f4;
         }
 
-        body { 
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
-            line-height: 1.6; 
-            color: var(--dark); 
-            background-color: var(--bg);
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.55;
+            color: var(--text-main);
             margin: 0;
-            padding-bottom: 70px;
+            background: #fff;
+            padding-bottom: 80px;
         }
 
-        /* Tactical Header */
+        .serif { font-family: "Georgia", serif; }
+        
         header {
-            background: var(--dark);
-            color: white;
             padding: 40px 20px;
-            text-align: center;
-            border-bottom: 8px solid var(--accent);
+            border-bottom: 1px solid #ddd;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        h1 { text-transform: uppercase; letter-spacing: 2px; margin: 0; font-size: 2rem; }
-        .subtitle { color: var(--warning); font-weight: bold; text-transform: uppercase; margin-top: 10px; display: block; }
+        .brand-logo { font-size: 2rem; font-weight: bold; margin: 0; }
+        .book-subtitle { font-size: 1rem; color: var(--brand-money); text-transform: uppercase; letter-spacing: 1px; }
 
-        /* Navigation */
-        nav { 
-            position: fixed; 
-            bottom: 0; 
-            width: 100%; 
-            background: var(--dark); 
-            display: flex; 
-            justify-content: space-around;
-            border-top: 4px solid var(--accent);
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        .section { display: none; }
+        .section.active { display: block; }
+
+        /* Navigation Bar */
+        nav {
+            position: fixed; bottom: 0; width: 100%;
+            background: #fff; border-top: 2px solid #000;
+            display: flex; justify-content: space-around; padding: 12px 0;
             z-index: 1000;
         }
-
         nav button {
-            background: none; border: none; color: #888; padding: 15px 5px;
-            font-weight: bold; font-size: 0.7rem; cursor: pointer; text-transform: uppercase;
+            background: none; border: none; font-weight: bold; font-size: 0.7rem;
+            text-transform: uppercase; letter-spacing: 1px; cursor: pointer; color: #666;
         }
+        nav button.active { color: #000; border-bottom: 2px solid var(--brand-money); }
 
-        nav button.active { color: white; border-top: 4px solid var(--warning); margin-top: -4px; }
-
-        /* Content Areas */
-        .container { max-width: 700px; margin: 0 auto; padding: 20px; }
-        .chapter-section { display: none; }
-        .chapter-section.active { display: block; animation: slideUp 0.3s ease-out; }
-
-        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* Tactical Callouts */
-        .alert-box { 
-            background: var(--warning); 
-            border: 2px solid var(--dark); 
-            padding: 20px; 
-            font-weight: 800; 
-            margin: 30px 0;
-            text-transform: uppercase;
-        }
-
-        .action-step { 
-            background: var(--accent); 
-            color: white; 
-            padding: 25px; 
-            margin: 30px 0;
-            font-weight: bold;
-            border-left: 10px solid var(--dark);
-        }
-
-        .real-talk { 
-            background: var(--gray); 
-            border-left: 5px solid #ccc; 
-            padding: 20px; 
-            font-style: italic; 
-            margin: 30px 0; 
-        }
-
-        .checklist-card {
-            border: 3px solid var(--dark);
-            padding: 25px;
-            margin: 40px 0;
-            background: #fff;
-        }
-
-        .checklist-card h3 { 
-            background: var(--dark); color: white; display: inline-block; 
-            padding: 5px 15px; margin-top: -45px; margin-left: -5px;
-        }
-
-        .check-item { display: flex; align-items: flex-start; margin-bottom: 15px; cursor: pointer; font-weight: 600; }
-        .check-item input { margin-right: 15px; transform: scale(1.3); }
-        .check-item input:checked + span { color: #888; text-decoration: line-through; }
-
-        h2 { border-bottom: 4px solid var(--dark); padding-bottom: 5px; text-transform: uppercase; margin-top: 50px; }
-        blockquote { font-size: 1.3rem; font-weight: 700; border-left: 5px solid var(--accent); padding-left: 20px; margin: 40px 0; }
+        /* dbd. Specific Elements */
+        h1 { font-size: 2.2rem; line-height: 1.1; margin: 1.5rem 0 1rem; }
+        h2 { font-size: 1.5rem; border-bottom: 1px solid #000; padding-bottom: 5px; margin-top: 2rem; }
+        .chapter-accent { width: 60px; height: 4px; background: #000; margin-bottom: 1.5rem; }
         
-        @media (max-width: 600px) { h1 { font-size: 1.5rem; } }
+        /* Callout Mappings from Series Guide */
+        .callout { border-left: 4px solid #111; padding: 15px 20px; margin: 25px 0; background: #f9f9f9; }
+        .callout-title { font-weight: bold; text-transform: uppercase; font-size: 0.85rem; display: block; margin-bottom: 8px; }
+        
+        .alert { border-left-style: solid; border-color: #DC2626; background: #fff1f2; }
+        .smart { border-left-style: double; border-color: #059669; background: #f0fdf4; }
+        .action { background: #111; color: #fff; border: none; }
+        .action .callout-title { color: #fff; }
+
+        /* Checklists */
+        .checklist { border: 2px solid #111; padding: 25px; margin: 30px 0; }
+        .checklist h3 { margin-top: 0; text-transform: uppercase; font-size: 1rem; }
+        .check-item { display: flex; align-items: flex-start; margin-bottom: 12px; }
+        .check-item input { margin-right: 15px; margin-top: 4px; }
+
+        blockquote { font-family: "Georgia", serif; font-style: italic; font-size: 1.25rem; margin: 2rem 0; padding-left: 20px; border-left: 2px solid #ddd; }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>DON'T BE DUMB.</h1>
-    <span class="subtitle">Tactical Money Manual</span>
+    <div class="brand-logo serif">dbd.</div>
+    <div class="book-subtitle serif">about your money</div>
 </header>
 
 <div class="container">
-    <section id="sect-intro" class="chapter-section active">
-        <h2>Front Matter: How to Read</h2>
-        <p>You don't need motivation. You need a system that works even when you're tired, busy, and over it.</p>
-        <p>This book is built for people who have tried before—apps, spreadsheets, "new month, new me" energy—and still ended up confused, stressed, or back at zero.</p>
+    <section id="sect-front" class="section active">
+        <h1 class="serif">How to Read This Book</h1>
+        <p>You don’t need motivation. You need a system that works even when you’re tired, busy, and over it.</p>
+        <p>This book is built for people who have tried before — apps, spreadsheets, “new month, new me” energy — and still ended up confused, stressed, or back at zero.</p>
         
-        <h3>The Rules</h3>
+        <h2 class="serif">The Only Rules</h2>
         <ul>
-            <li><strong>Do one thing at a time:</strong> Each chapter gives you a smallest-possible move.</li>
-            <li><strong>Imperfect data beats perfect intentions:</strong> Miss a day? Start again. No drama.</li>
-            <li><strong>Build stability first:</strong> Control → cushion → momentum.</li>
+            <li><strong>Do one thing at a time.</strong> Each chapter gives you a smallest-possible move. Take it.</li>
+            <li><strong>Imperfect data beats perfect intentions.</strong> Miss a day? Start again. No drama.</li>
+            <li><strong>Build stability first.</strong> Control → cushion → momentum. That’s the order.</li>
         </ul>
 
-        <h2>Introduction: Seeking Power</h2>
-        <p>Money is a tool. When you understand how to use it, you gain control over your life in ways that ripple through everything. That's what we're after.</p>
-        <blockquote>Power is the ability to say no to jobs that drain you and to not spend Sunday night dreading Monday.</blockquote>
+        <div class="callout">
+            <span class="callout-title">The Pattern (Use This Every Chapter)</span>
+            <ol>
+                <li><strong>Read</strong> the chapter.</li>
+                <li><strong>Do the Action Step</strong> the same day if you can.</li>
+                <li><strong>Use the Checklist</strong> to finish the chapter in 15 minutes or less.</li>
+                <li><strong>Do the Monthly Money Meeting</strong> (Chapter 2) so you don’t drift.</li>
+            </ol>
+        </div>
+
+        <h1 class="serif">Introduction:<br>You're Here Because You're Seeking</h1>
+        <div class="chapter-accent"></div>
+        <p>You picked up this book for a reason.</p>
+        <p>Maybe your bank account keeps hitting zero before payday. Maybe you make decent money but have nothing to show for it. Maybe you're tired of feeling anxious every time you check your balance. Maybe you're just sick of not understanding where the hell your money goes.</p>
+        <blockquote>Money is a tool. When you understand how to use it, you gain control over your life in ways that ripple through everything. That's what we're after.</blockquote>
     </section>
 
-    <section id="sect-ch1" class="chapter-section">
-        <h2>01. Track Your Shit</h2>
-        <p>If you can't answer how much you spent last month within $100, you're flying blind. You can't fix what you can't see.</p>
+    <section id="sect-ch1" class="section">
+        <h1 class="serif">01. Track Your Shit</h1>
+        <div class="chapter-accent"></div>
+        <p>Here's a question: how much money did you spend last month? Not approximately. Actually. The real number.</p>
+        <p>If you can't answer that within $100, you're flying blind. And you can't fix what you can't see.</p>
         
-        <div class="alert-box">
-            ⚠️ DON'T BE DUMB ALERT: Don't wait until you're "less busy." You'll never be less busy. Start now.
+        <div class="callout alert">
+            <span class="callout-title">⚠️ don’t be dumb. alert</span>
+            If you’re waiting to find the “perfect” tracking system, you’re just procrastinating in a nicer outfit. Pick one and start today.
         </div>
 
-        <p>The average American underestimates their monthly spending by 20-30%. If you think you spend $3,000, you probably spend $3,900.</p>
+        <h3 class="serif">Why People Don’t Track</h3>
+        <p>Fear. Shame. Tedious. All of that is valid. And all of that is exactly why people stay stuck. Tracking isn’t about judgment. It’s about data. You’re a scientist observing your financial behavior.</p>
 
-        <div class="action-step">
-            🎯 ACTION STEP: Open your phone notes right now. Choose a method (Notes, Spreadsheet, or App). Enter every transaction from today.
+        <div class="callout smart">
+            <span class="callout-title">✓ smart move</span>
+            Treat this like an experiment. For 30 days, you’re not “good” or “bad.” You’re just collecting information.
         </div>
 
-        <div class="checklist-card">
-            <h3>CHECKLIST</h3>
-            <label class="check-item"><input type="checkbox"><span>Choose your tracking method</span></label>
-            <label class="check-item"><input type="checkbox"><span>Enter all transactions from today</span></label>
-            <label class="check-item"><input type="checkbox"><span>Set a weekly "Review Spending" reminder</span></label>
-            <label class="check-item"><input type="checkbox"><span>Commit to 30 days of data collection</span></label>
+        <div class="callout action">
+            <span class="callout-title">🎯 action step</span>
+            Right now: open your bank/credit card app and write down the last 10 transactions you see. You’re officially started.
+        </div>
+
+        <div class="checklist">
+            <h3 class="serif">don't be dumb. checklist</h3>
+            <div class="check-item"><input type="checkbox"><span>Pick a tracking method and commit for 30 days.</span></div>
+            <div class="check-item"><input type="checkbox"><span>Track everything—cash, cards, Venmo, subscriptions.</span></div>
+            <div class="check-item"><input type="checkbox"><span>Set a daily 5‑minute reminder to log transactions.</span></div>
         </div>
     </section>
 
-    <section id="sect-ch2" class="chapter-section">
-        <h2>02. The Budget That Doesn't Suck</h2>
-        <p>Traditional budgeting fails because it's built on restriction and the fantasy version of yourself who never gets tired.</p>
-
-        <h3>The 50/30/20 Rule</h3>
+    <section id="sect-ch2" class="section">
+        <h1 class="serif">02. The Budget That Doesn’t Suck</h1>
+        <div class="chapter-accent"></div>
+        <p>Most people hear “budget” and picture a color‑coded spreadsheet with 47 categories and rules that make life feel smaller. That’s why most budgets die by mid‑February.</p>
+        
+        <h3 class="serif">The 50/30/20 Rule</h3>
         <ul>
-            <li><strong>50% Needs:</strong> Housing, utilities, groceries, transport.</li>
-            <li><strong>30% Wants:</strong> Dining, hobbies, fun.</li>
-            <li><strong>20% Savings & Debt:</strong> The stuff that buys you options.</li>
+            <li><strong>50% Needs:</strong> housing, utilities, groceries, transportation, insurance, minimum debt.</li>
+            <li><strong>30% Wants:</strong> dining out, entertainment, hobbies, travel.</li>
+            <li><strong>20% Savings & Debt:</strong> emergency fund, retirement, extra debt payments.</li>
         </ul>
 
-        <div class="alert-box">
-            ⚠️ WARNING: If your "Needs" are 70%+ of your pay, you have a structural problem. You can't build a life on that split.
+        <div class="callout">
+            <p><strong>Example:</strong> Take‑home $4,000/mo → Needs $2,000 • Wants $1,200 • Savings+Debt $800.</p>
         </div>
 
-        <div class="action-step">
-            🎯 ACTION STEP: Log into your bank. Set up automatic transfers for payday: $X to savings. Automation > Willpower.
-        </div>
-
-        <div class="checklist-card">
-            <h3>CHECKLIST</h3>
-            <label class="check-item"><input type="checkbox"><span>Calculate your real 50/30/20 split from last month</span></label>
-            <label class="check-item"><input type="checkbox"><span>Automate your savings transfer for next payday</span></label>
-            <label class="check-item"><input type="checkbox"><span>Schedule your "Monthly Money Meeting"</span></label>
-        </div>
-    </section>
-
-    <section id="sect-ch3" class="chapter-section">
-        <h2>03. Debt & Interest</h2>
-        <p>Debt isn't a moral failing, but interest is the killer. Interest is a recurring subscription to being broke.</p>
-        
-        <div class="real-talk">
-            "I had $12,000 in credit card debt. The psychological shift from 'drowning' to 'in control' was worth every ramen dinner." — Kayla, 31
-        </div>
-
-        <h3>Snowball vs. Avalanche</h3>
-        <p>Snowball focuses on smallest balances for <strong>Psychological Wins</strong>. Avalanche focuses on highest APR for <strong>Mathematical Optimization</strong>.</p>
-        <p>We recommend <strong>Snowball</strong> because a plan you follow beats a perfect plan you abandon.</p>
-
-        <div class="checklist-card">
-            <h3>CHECKLIST</h3>
-            <label class="check-item"><input type="checkbox"><span>List every debt with balance and APR</span></label>
-            <label class="check-item"><input type="checkbox"><span>Set up autopay for all minimums</span></label>
-            <label class="check-item"><input type="checkbox"><span>Build a $500-$1,000 emergency buffer first</span></label>
-            <label class="check-item"><input type="checkbox"><span>Pick your first target debt and stop using those cards</span></label>
+        <div class="checklist">
+            <h3 class="serif">don't be dumb. checklist</h3>
+            <div class="check-item"><input type="checkbox"><span>Calculate your real 50/30/20 split from last month.</span></div>
+            <div class="check-item"><input type="checkbox"><span>Identify your 3 biggest "leaks."</span></div>
+            <div class="check-item"><input type="checkbox"><span>Schedule your first Monthly Money Meeting.</span></div>
         </div>
     </section>
 </div>
 
 <nav>
-    <button onclick="nav('intro')" id="btn-intro" class="active">HOME</button>
+    <button onclick="nav('front')" id="btn-front" class="active">FRONT</button>
     <button onclick="nav('ch1')" id="btn-ch1">CH 1</button>
     <button onclick="nav('ch2')" id="btn-ch2">CH 2</button>
-    <button onclick="nav('ch3')" id="btn-ch3">CH 3</button>
 </nav>
 
 <script>
     function nav(id) {
-        // Switch Page
-        document.querySelectorAll('.chapter-section').forEach(s => s.classList.remove('active'));
+        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
         document.getElementById('sect-' + id).classList.add('active');
-        
-        // Update Buttons
         document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
         document.getElementById('btn-' + id).classList.add('active');
-        
         window.scrollTo(0,0);
-    }
-
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('./sw.js');
     }
 </script>
 </body>
